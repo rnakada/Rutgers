@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+  </head>
+  <body>
+
+    <h1>Open the console to see the magic!</h1>
+
+    <script>
+    var exposed = "This string is visible everywhere!";
+
+    function firstFunction(message) {
+      // Inside of firstFunction, I can see both exposed and
+      // message.
+      console.log(message + exposed); //Oh my! This string is visible everywhere!
+    }
+
+    firstFunction("Oh my! ");
+
+    // This will throw an error--the message variable
+    // is only visible *inside* of firstFunction.
+    // console.log(message);
+
+    function secondFunction(exposed) {
+      console.log({
+        scope: 'secondFunction',
+        message: message,
+        exposed: exposed
+      });
+      // secondFunction *should* be able to see the exposed
+      //  variable we declared above, but we've "shadowed" it!
+      console.log(exposed);
+    }
+
+    secondFunction("This isn't what I thought I wrote...");
+
+    // Finally, keep in mind that using "return" lets us
+    // give something back to whomever called the function.
+    function thirdFunction(message) {
+      console.log({
+        scope: 'thirdFunction',
+        message: message,
+        exposed: exposed
+      });
+      return message + exposed;
+    }
+
+
+    // Try to do things this way, instead of using console.log
+    // inside of your function
+    var message = thirdFunction("Oh my! ");
+    console.log(message);
+    console.log({
+        scope: 'global',
+        message: message,
+        exposed: exposed
+    });
+    </script>
+
+  </body>
+</html>

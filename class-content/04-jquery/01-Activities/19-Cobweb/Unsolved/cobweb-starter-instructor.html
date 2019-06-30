@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New This</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  </head>
+<body>
+
+  <h1>Open the console to see the action!</h1>
+
+  <script>
+
+  // Here we are given a cob-web of items. Let's dig in and grab the items we need.
+  var theCobWeb = {
+    biggestWeb: {
+      item: "comb",
+      biggerWeb: {
+        items: ["glasses", "paperclip", "bubblegum"],
+        smallerWeb: {
+          item: "toothbrush",
+          tinyWeb: {
+            items: ["toenails", "lint", "wrapper", "homework"]
+          }
+        }
+      },
+      otherBigWeb: {
+        item: "headphones"
+      }
+    }
+  };
+
+var keys = Object.keys(theCobWeb.biggestWeb.biggerWeb);
+console.log(keys);
+
+// Create the code necessary to print each of the following lines using the object above:
+var arr = ["biggestWeb", "item"];
+console.log(theCobWeb[arr[0]][arr[1]]);// prints comb
+console.log(theCobWeb.biggestWeb.item);// prints comb
+// "I found my glasses!"
+console.log("I found my " + theCobWeb.biggestWeb.biggerWeb.items[0]);
+// "I found my toothbrush!"
+console.log("I found my " + theCobWeb.biggestWeb.biggerWeb.smallerWeb.item);
+// "I found my headphones!"
+console.log("I found my " + theCobWeb.biggestWeb.otherBigWeb.item);
+// "I found my homework!"
+console.log("I found my " + theCobWeb.biggestWeb.biggerWeb.smallerWeb.tinyWeb.items[3]);
+
+
+// Bonus (Extra Hard): It's impossible to complete this in the allotted time. Take this home as a challenge and bring it back to your TA/Instructor for the solution.
+// Create a function using JavaScript (NOT jQuery) for which you can pass the name of an item and theCobWeb
+// and the function returns the smallest web it was found inside of.
+// Your code should work if someone were to modify theCobWeb.  
+//  for example if you gave your program 
+//    comb it should give back biggestWeb
+//    toenails it should give back tinyWeb
+//    headphones it should give back otherBigWeb
+// HINT: you should use recursion
+
+console.log(tenZ(theCobWeb, "comb", []));
+console.log(tenZ(theCobWeb, "toenails", []));
+console.log(tenZ(theCobWeb, "headphones", []));
+console.log(tenZ(theCobWeb, "glasses", []));
+console.log(tenZ(theCobWeb, "homework", []));
+console.log(tenZ(theCobWeb, "Barney", []));
+
+
+function tenZ(myObj, searchTerm, trackKeys){
+    // if i find the find the item
+    if(searchTerm === myObj){
+        if(trackKeys[trackKeys.length - 2] === "items"){
+            return trackKeys[trackKeys.length - 3];
+        }
+        return trackKeys[trackKeys.length - 2];
+    }
+    // if i dont find it but we are at the end of a tree (object)
+    else if( typeof myObj === "string"){
+        return null;
+    }
+    // if we have more objects inside the tree (object)
+    else{
+        var keys = Object.keys(myObj);
+        // console.log(keys);
+        for(var i = 0; i < keys.length; i++){
+            //clone array
+            var newTrack = trackKeys.slice(0);
+            //pushing our new key
+            newTrack.push(keys[i]);
+            // recursive function call... using the same function name again
+            var result = tenZ(myObj[keys[i]], searchTerm, newTrack);
+            if(result === null){
+                //nothing
+            }
+            else{
+                return result;
+            }
+        }
+        return null;
+    }
+}
+
+// var treeroot = {
+// html{
+//    head: $('head')    
+//    body: $('body')
+// }
+// }
+
+// 
+// console.log(tenZ(
+//     theCobWeb.biggestWeb.biggerWeb.smallerWeb.tinyWeb.items[0], 
+//     "toenails", 
+//     ["biggestWeb", "biggerWeb", "smallerWeb", "tinyWeb", "items", 0]
+// ));
+
+// console.log(tenZ(
+//     theCobWeb.biggestWeb.otherBigWeb, 
+//     "headphones", 
+//     ["biggestWeb", "otherBigWeb"]
+// ));
+// console.log(tenZ(
+//     theCobWeb.biggestWeb.otherBigWeb.item, 
+//     "headphones", 
+//     ["biggestWeb", "otherBigWeb", "item"]
+// ));
+</script>
+
+</body>
+</html>

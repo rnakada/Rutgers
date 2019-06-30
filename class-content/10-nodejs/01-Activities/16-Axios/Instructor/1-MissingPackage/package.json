@@ -1,0 +1,19 @@
+{
+  "name": "1-missingpackage",
+  "version": "0.0.1",
+  "description": "",
+  "main": "axios.js",
+  "scripts": {
+    "test": "echo 0"
+  },
+  "keywords": [
+    "class",
+    "is",
+    "awesome"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

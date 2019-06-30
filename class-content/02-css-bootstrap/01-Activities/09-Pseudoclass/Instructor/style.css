@@ -1,0 +1,43 @@
+/**
+ * Google Fonts Demo
+ **/
+
+/* Add in the Google Fonts of your choice */
+h1{
+    font-family: 'Allerta Stencil', sans-serif;
+}
+
+li:first-child {
+    color: red;
+}
+
+li:nth-child(4){
+    color: blue;
+}
+li:hover:nth-child(5){
+    color: gray;
+}
+
+a{
+    font-weight: 500;
+}
+
+a:link {
+    color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+    color: #00FF00;
+}
+
+/* mouse over link */
+a:hover {
+    color: pink;
+    font-weight:900;
+}
+
+/* selected link */
+a:active {
+    color: black;
+} 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trigger Clicked</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <h1>Click to Eat Sandwich <span id="totalSandwiches"></span></h1>
+  <h3 id="tb">Tuna and Bacon Why Not? Sandwich<span class="total"></span></h3>
+  <h3 id="quarter">Quarter Pounder Cuban<span class="total"></span></h3>
+  <h3 id="chicken">Chicken Cutlet Sandwich<span class="total"></span></h3>
+
+  <script type="text/javascript">
+    var totalSandwiches = 0;
+    
+    var countSandwiches = {};
+    // This document.ready isn't necessary in this example... but is needed in cases where the HTML is complex.
+    // This code makes sure that the JavaScript doesn't get run until the HTML is finished loading
+    // It's useful to become familiar with now.
+
+    $(document).ready(function() {
+
+      // VARIABLES
+      // ====================================================================
+      // Here we create variables for tracking the number of sandwiches eaten
+      // ...
+      
+
+      // ...
+
+      // FUNCTIONS
+      // ====================================================================
+      // Here we create various on "click" functions which capture the clicks
+      // Inside each click event is the code to create an alert, update the counter, then show the updated count.
+      // ...
+      // $('#tb').on("click", function(event){
+      //   //console.log(event);
+      //   totalSandwiches++;
+      //   $("#totalSandwiches").html("(" + totalSandwiches + ")");
+      //   alert("Yummy");
+        
+      // });
+
+      
+      // $(document).on("keyup", function(event){
+      //   console.log(event.key);
+      // });
+
+      $('#tb').on("click", function(event){
+          countSandwich("Yummy", "tb");
+      });
+      $('#quarter').on("click", function(event){
+          countSandwich("McDonalds whatever you put for the other ones", "quarter");
+      });
+      $('#chicken').on("click", function(event){
+          countSandwich("Stuff yer Face", "chicken");
+      });
+      // ...
+        function countSandwich(snarkyMessage, idSandwich){
+          totalSandwiches++;
+          //test to see if your object has a property
+          if(typeof countSandwiches[idSandwich] === 'undefined'){
+            // countSandwiches["tb"]
+            countSandwiches[idSandwich] = 1;
+          }
+          else{
+            countSandwiches[idSandwich]++;
+          }
+          $("#totalSandwiches").html("(" + totalSandwiches + ")");
+          // #tb 
+          $("#" + idSandwich + " .total").html(" (" + countSandwiches[idSandwich] + ")");
+          alert(snarkyMessage);
+
+        }
+    });
+
+</script>
+
+</body>
+
+</html>

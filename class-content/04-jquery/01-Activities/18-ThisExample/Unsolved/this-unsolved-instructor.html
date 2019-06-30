@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>This Example</title>
+</head>
+<body>
+
+  <h1>Make sure to view the console to see the action!</h1>
+
+  <script type="text/javascript">
+
+    // EXAMPLE ONE:
+    // --------------------------------------------------
+    // What is "this" going to print?
+
+    console.log(this);
+    // window the default context
+
+
+    // EXAMPLE TWO:
+    // --------------------------------------------------
+    // What is "this" going to print?
+
+    function myFunction() {
+      console.log(this);
+    }
+    myFunction();
+
+    // EXAMPLE THREE (IMPORTANT):
+    // --------------------------------------------------
+    // What is "someObj.say()" going to print?
+    var debugVar = 0;
+    var someObj = {
+      name: "Uhfarhan",
+      say: function() {
+        //var this = someObj;
+        debugVar = this;
+        console.log(this);
+        console.log(this.name);
+        console.log({
+            "This thing right": "here"
+        });
+        this.tryJose();
+      },
+      tryJose: function(){
+        console.log("I don't know");
+      }
+    };
+    console.log(this);
+    someObj.say();
+    console.log(debugVar);
+
+
+    // EXAMPLE FOUR (BONUS, TRICKY!):
+    // --------------------------------------------------
+    // What is "myObj.yell()" going to print? Why?
+
+    var myObj = {
+      name: "",
+      yell: function() {
+        this.name = "Star Powerup";
+
+        var changeName = function(newName) {
+          console.log("function Name changeName");
+          console.log(this);
+          this.name = newName;
+        };
+        changeName("Blue Shell");
+        console.log(this);
+      }
+    };
+    myObj.tryJose = function(){
+        console.log("function Name tryJose");
+        console.log(this);
+    }
+    myObj.yell();
+    myObj.tryJose();
+
+
+    // EXAMPLE FIVE (BONUS, TRICKY!):
+    // --------------------------------------------------
+    // What is "myObj.yell()" going to print? Why?
+
+    var myObj = {
+      name: "",
+      yell: function() {
+          // myObj context
+        // This line is important!
+        var tomato = this;
+
+        this.name = "Star Powerup";
+        var changeName = function(newName) {
+            //default context "window"
+          tomato.name = newName;
+        };
+        changeName("Blue Shell");
+        console.log(tomato);
+        var changeName2 = function(newName){
+            console.log("changeName2");
+            console.log(this);
+            this.name = newName;
+        };
+        // still a function declaration but this time... we change the context
+        changeName2 = changeName2.bind(this);
+        changeName2("Cheese");
+        console.log(this);
+
+        var changeName3 = function(newName){
+            console.log("changeName3");
+            console.log(this);
+            this.name = newName;
+        }.bind(this);// changing the context to myObj
+        changeName3("Your name");
+        console.log(this);
+
+      }
+    };
+    myObj.yell();
+
+    willFunction(); // console.log expression
+    // subject to hoisting
+    function willFunction(){
+        console.log("declaration");
+    }
+    // willFunction2(); // undefined
+    var willFunction2 = function(){
+        console.log("expression");
+    }
+    willFunction2(); // will work
+    
+
+  </script>
+</body>
+</html>

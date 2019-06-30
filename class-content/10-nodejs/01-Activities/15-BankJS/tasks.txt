@@ -1,0 +1,7 @@
+??? use append to create the file - probably dont need to
+
+- read user inputs and save to a variable
+
+- create process/function called total that will add up all the transactions (readFile)
+
+- create process/function called deposit and it should add a positive transaction (appendFile)

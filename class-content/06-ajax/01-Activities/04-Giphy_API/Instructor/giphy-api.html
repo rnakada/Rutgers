@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy API</title>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Example queryURL for Giphy API
+    var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
+    var queryURL2 = "https://api.giphy.com/v1/gifs/search?q=space&limit=100&offset=0&rating=R&lang=en&api_key=RANHjz2L1Drs7AUTUKTyWRWnP2iuiQpy";
+    var debugResponse;
+    $.ajax({
+      url: queryURL2,
+      method: "GET"
+    }).then(function(response) {
+      debugResponse = response;
+      console.log(response);
+    });
+  </script>
+
+</body>
+
+</html>

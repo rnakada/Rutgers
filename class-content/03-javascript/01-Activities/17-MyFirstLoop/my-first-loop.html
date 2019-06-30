@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Looping Through Arrays</title>
+  </head>
+  <body>
+
+    <h1>Open the console to see the magic!</h1>
+
+    <script>
+
+      // Creating an array of vegetables.
+      var vegetables = ["Carrots", "Peas", "Lettuce", "Tomatoes"]; //4 undefined
+
+      // Looping through each item in the array and logging a message to the console.
+      // 0,1,2,3
+      // 1 = 0 + 1
+      // 2 = 1 + 1
+      // 3 = 2 + 1
+      // 4 = 3 + 1 // stop here
+      for (var i = 0; i < vegetables.length; i++) {
+        console.log("I love " + vegetables[i]);
+      }
+
+      
+      // 2 = 0 + 2
+      // 4 = 2 + 2 // stop here
+      for (var i = 0; i < vegetables.length; i = i + 2) {
+        console.log("I love " + vegetables[i]);
+      }
+
+    </script>
+    
+  </body>
+</html>

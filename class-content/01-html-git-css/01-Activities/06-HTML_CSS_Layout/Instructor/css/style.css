@@ -1,0 +1,36 @@
+/* this is to make a column */
+header{
+    background-color: #555555;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+body{
+    background-color: peachpuff;
+}
+
+section {
+    /* display:inline-block; */
+}
+
+#main{
+    float:left;
+}
+
+#contact-info{
+    float:right;
+}
+
+/* #main > img direct descendant */
+#main img,
+#main p{
+    /* display: inline-block; */
+}
+#main p{
+    float:right;
+    width: 200px;
+}
+/* #contact-info {
+    display:inline-block;
+} */

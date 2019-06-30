@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Data Types, User Input, Conditional Logic
+    </title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      //"ksjdsidf3848398haqqwer this is a also a string"
+      //""
+      //variable that is a string, comes from a prompt with an input field
+      var userName = prompt("What's your name?");
+      //variable that is a boolean, comes from the confirmation prompt
+      var confirmCats = confirm("Do you like cats?");
+
+      var petName = "Meeses"; //string
+      var petType = "Tuxedo Cat"; //string
+      var petAge = 5; //number 
+      var petIsCat = confirm("Is your pet a cat?"); //boolean
+
+      console.log({
+        petName: petName,
+        petType: petType,
+        petAge: petAge,
+        petIsCat: petIsCat
+      });
+
+      //based on whether confirmCats is true or false
+      if (confirmCats) {
+        //shows a tiny confirmation window with only an OK button
+        alert(petName + " " + petType + " " + petAge);
+      }
+      else {
+        alert("You don't get my cat's information");
+      }
+
+      //uses the value from petIsCat boolean to alert the user
+      if (petIsCat) {
+        alert("My pet is a cat");
+      }
+      else {
+        alert("My pet is not a cat");
+      }
+
+      //if petAge is not exactly equal to 7
+      // 7 != "7" ==> 7 != 7 ==> false
+      // 7 !== "7" ==> types not equal => false
+      if (petAge !== "7") {
+        alert("My pet is not 7 years old");
+      }
+      // 7 == "7" ==> true because we not checking the type of variable
+      // 7 === "7" ==> false because we are checking the type of variable
+      if (petAge === "7") {
+        alert("My pet is 7 years old");
+      }
+
+      //if petAge is equal 5 and is also a number
+      if (petAge === 5) {
+        alert("My pet is 5 years old");
+      }
+      //if petAge is less than 5 and also not equal to 5
+      else if (petAge < 5) {
+        alert("My pet is less than 5 years old");
+      }
+      //if petAge is greater than 5
+      else if (petAge > 5) {
+        alert("My pet is older than 5 years old");
+      }
+
+      // document.write() overwrites the entire page. We don't normally use this, but we will today for simplicity
+      document.write("Welcome to our page " + userName);
+
+      //catAge is a string
+      var catAge = prompt("How old is your cat?");
+
+      // Won't work as expected
+      // if catAge = "2"
+      //expect 4 but it will print 22
+      alert(catAge + 2);
+
+      // Works as expected
+      // if catAge = "2"
+      // parseInt(catAge) => 2
+      // will print 4
+      alert(parseInt(catAge) + 2);
+
+    </script>
+  </body>
+</html>

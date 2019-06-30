@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 1</title>
+</head>
+
+<body>
+
+  <div id="game">
+    Press r, p, or s to play.
+  </div>
+
+  <script type="text/javascript">
+    // Whenever a key is pressed, alert "pressed a button".
+    document.onkeyup = function(event) {
+      // console.log(event.key);
+      // alert("pressed a button");
+      var userInput = event.key;
+      var choices = "rps".split("");
+      // console.log(choices);
+      var computerInput = choices[Math.floor(Math.random() * choices.length)];
+      // console.log(computerInput);
+      console.log({
+        userInput: userInput,
+        choices: choices,
+        computerInput: computerInput
+      });
+    };
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+Smiles
+<ul>   
+    {{#each movies}}
+        <li id="movie-{{id}}">
+            <p>id: {{id}}</p>
+            <p>movie: {{movie}}</p>
+            <button data-id="{{id}}">Delete</button>
+        </li>
+    {{/each}}
+</ul>
+
+<form action="/movies" method="POST">
+    <label for="movie">Movie: </label><input type="text" name="movie" placeholder="Type Movie Here"/>
+</form>
+<script>
+    
+    $(document).on("submit", ()=>{
+        event.preventDefault();
+        var movie = {
+            movie: $('[name=movie]').val()
+        };
+        $.ajax({
+            method: "POST",
+            url: "/movies",
+            dataType: 'html',//response type
+            data: movie
+        }).then(function(data){
+            console.log(data);
+            $('ul').append(data);
+            $('[name=movie]').val('');
+            // window.location = "/";
+        }).catch(function(err){
+            console.log(err);
+        });
+    });
+
+    $(document).on('click', 'button', (event) =>{
+        console.log(event.target);
+        var id = $(event.target).attr("data-id");
+        // console.log(id);
+        $.ajax({
+            method: "DELETE",
+            url: "/movies/" + id,
+            dataType: 'json'//response type
+        }).then(function(data){
+            // console.log(data);
+            $('#movie-' + id).remove();
+        });
+    });
+    
+</script>

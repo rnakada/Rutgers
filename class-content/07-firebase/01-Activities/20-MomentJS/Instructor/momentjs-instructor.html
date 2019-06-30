@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Moment JS Exercises</title>
+
+</head>
+
+<body>
+
+  <!-- jQuery-->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <!-- Link to Moment.js should go here -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+  <!-- Script -->
+  <script>
+    // Prints the current day and time in this particular format.
+    console.log(moment().format("DD/MM/YY hh:mm A"));
+    console.log(moment().format("dddd DD/MM/YYYY hh:mm a"));
+    var dateString = moment().format("dddd DD/MM/YYYY hh:mm a");
+    var dateObj = moment(dateString, "dddd DD/MM/YYYY hh:mm a");
+    
+    var dateString2 = "May 2, 1992 11:45am";
+    var dateObj2 = moment(dateString2, "MMMM D, YYYY hh:mma");
+    var unix = dateObj2.format("x");
+    dateObj2.add(48, "hours");
+    // var dateString3 = "June 21, 1992";
+    // var dateObj3 = 
+    console.log(dateObj2.format("MMMM D, YYYY hh:mma"));
+
+    var dateString3 = "October 21, 2015";
+    var dateObj3 = moment(dateString3, "MMMM DD, YYYY");
+    dateObj3.add(2, "days");
+    console.log(dateObj3.format("MMMM D, YYYY hh:mma"));
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Data Types, User Input, Conditional Logic - Uncommented
+    </title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      // shows a popup asking for your name
+      var userName = prompt("What's your name?");
+      // yes/no true/false grabbing that value based whether user likes cats
+      var confirmCats = confirm("Do you like cats?");
+
+      var petName = "Meeses"; // string with quotes around it
+      var petType = "Tuxedo Cat"; // string with quotes around it
+      var petAge = 5; // number .. integer float double
+      var petIsCat = true; //boolean 
+      // based on the value of confirmCats... you will print info on the cat OR NOT
+      if (confirmCats) { // will only happen if true
+        alert(petName + " " + petType + " " + petAge);
+      }
+      else { // will only happen if all other if statements are false
+        alert("You don't get my cat's information");
+      }
+      // since this value is hard-coded to be true...  it will always print my pet is a cat
+      if (petIsCat) {
+        alert("My pet is a cat");
+      }
+      else {
+        alert("My pet is not a cat");
+      }
+
+      // since petAge is hard-coded to be 5...  it will always print My pet is not 7 years old
+      if (petAge !== 7) {
+        alert("My pet is not 7 years old");
+      }
+
+      if (petAge === 5) {
+        alert("My pet is 5 years old");
+      }
+      else if (petAge < 5) {
+        alert("My pet is less than 5 years old");
+      }
+      else {
+        alert("My pet is older than 5 years old");
+      }
+
+      // document.write() overwrites the entire page. We don't normally use this, but we will today for simplicity
+      document.write("Welcome to our page " + userName);
+      // prompt always returns a string of the user input
+      var catAge = prompt("How old is your cat?");
+
+      // Won't work as expected
+      alert(catAge + 2);
+
+      // Works as expected
+      alert(parseInt(catAge) + 2);
+
+    </script>
+  </body>
+</html>
